@@ -11,7 +11,7 @@
 
 template <class Key, class Data>
 class Node{
-    Key& key;
+    Key key;
     std::shared_ptr<Data> data;
     Node<Key,Data>* left_node;
     Node<Key,Data>* right_node;
@@ -30,7 +30,7 @@ class Node{
 
     Node& operator=(const Node& other) = delete;
 
-    Key& get_key() const;
+    Key get_key() const;
 
     Node<Key, Data>* get_left() const;
 
@@ -107,7 +107,7 @@ Node<Key,Data>::Node(Key key,std::shared_ptr<Data> data) : key(key), data(data) 
                             , right_node(nullptr), father_node(nullptr) , node_height(0), balance_factor(0){}
 
 template <class Key, class Data>
-Key& Node<Key,Data>::get_key() const {
+Key Node<Key,Data>::get_key() const{
     return key;
 }
 
